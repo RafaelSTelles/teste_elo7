@@ -16,7 +16,6 @@ import br.com.rafaelstelles.model.DadosSonda;
 import br.com.rafaelstelles.model.DirecaoCardinal;
 import br.com.rafaelstelles.model.Sonda;
 import br.com.rafaelstelles.model.TamanhoPlano;
-import br.com.rafaelstelles.util.Constantes;
 
 @Singleton
 public class SondaService {
@@ -45,7 +44,7 @@ public class SondaService {
 		return sondas;
 	}
 
-	public List<String> quebrarStringEmLinhas(String comando) {
+	protected List<String> quebrarStringEmLinhas(String comando) {
 		final List<String> resultados = Arrays.asList(comando.split("\\" + QUEBRA_LINHA));
 		if(resultados.isEmpty() || resultados.size() == 1) {
 			return Arrays.asList(comando.split(QUEBRA_LINHA));
@@ -83,7 +82,7 @@ public class SondaService {
 		return comandos;
 	}
 
-	public Sonda processarSonda(String linha1, String linha2, TamanhoPlano tamanhoPlano) {
+	protected Sonda processarSonda(String linha1, String linha2, TamanhoPlano tamanhoPlano) {
 		final DadosSonda dadosSonda = processarPontoInicialSonda(linha1);
 		final Sonda sonda = new Sonda(dadosSonda);
 		final List<Comando> comandos = processarMovimentosSonda(linha2);
