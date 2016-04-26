@@ -1,5 +1,7 @@
 package br.com.rafaelstelles.rest;
 
+import static br.com.rafaelstelles.rest.SondaRestService.COMANDAR;
+import static br.com.rafaelstelles.rest.SondaRestService.SONDA;
 import static org.testng.Assert.assertEquals;
 
 import javax.ws.rs.client.Client;
@@ -50,7 +52,7 @@ public class SondaRestServiceTest {
 		form.param("comando", comandos);
 
 		final Client client = ClientBuilder.newClient();
-		final String url = Constantes.DEFAULT_PATH_REST + SondaRestService.SONDA + SondaRestService.COMANDAR;
+		final String url = Constantes.DEFAULT_PATH_REST + SONDA + COMANDAR;
 		final String resultado = client.target(TestPortProvider.generateURL(url)).request().post(Entity.entity(form, MediaType.APPLICATION_FORM_URLENCODED_TYPE), String.class);
 
 		assertEquals(resultado, experado);

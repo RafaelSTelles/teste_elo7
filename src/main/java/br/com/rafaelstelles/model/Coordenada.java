@@ -15,11 +15,11 @@ public class Coordenada implements Serializable {
 		this.y = y;
 	}
 
-	protected int getX() {
+	int getX() {
 		return x;
 	}
 
-	protected int getY() {
+	int getY() {
 		return y;
 	}
 
@@ -50,28 +50,28 @@ public class Coordenada implements Serializable {
 				'}';
 	}
 
-	protected void incrementaX(int max) {
+	void incrementaX(int max) {
 		if (x >= max) {
 			throw new IllegalStateException(String.format("Não é possível mover o ponto para um lugar maior que o plano x=%s max=%s", x, max));
 		}
 		x++;
 	}
 
-	protected void decrementaX() {
+	void decrementaX() {
 		if (x <= INICIAL.getX()) {
 			throw new IllegalStateException(String.format("Não é possível mover o ponto menor a coordenada inicial x=%s inicial=%s", x, INICIAL.getX()));
 		}
 		x--;
 	}
 
-	protected void incrementaY(int max) {
+	void incrementaY(int max) {
 		if (y >= max) {
 			throw new IllegalStateException(String.format("Não é possível mover o ponto para um lugar maior que o plano y=%s max=%s", y, max));
 		}
 		y++;
 	}
 
-	protected void decrementaY() {
+	void decrementaY() {
 		if (y <= INICIAL.getX()) {
 			throw new IllegalStateException(String.format("Não é possível mover o ponto menor a coordenada inicial y=%s inicial=%s", x, INICIAL.getY()));
 		}

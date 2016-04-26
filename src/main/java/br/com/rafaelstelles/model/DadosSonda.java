@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public class DadosSonda implements Serializable {
 
-	private Coordenada coordenada;
-	private DirecaoCardinal direcaoCardinal;
+	private final Coordenada coordenada;
+	private final DirecaoCardinal direcaoCardinal;
 
 	public DadosSonda(Coordenada coordenada, DirecaoCardinal direcaoCardinal) {
 		this.coordenada = coordenada;

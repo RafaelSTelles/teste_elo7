@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public class TamanhoPlano implements Serializable {
 
-	private int altura;
-	private int largura;
+	private final int altura;
+	private final int largura;
 
 	public TamanhoPlano(int altura, int largura) {
 		this.altura = altura;

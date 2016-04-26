@@ -17,12 +17,12 @@ import java.util.stream.Collectors;
 
 public class Sonda implements Serializable {
 
-	private Coordenada coordenadaInicial;
-	private DirecaoCardinal direcaoCardinalInicial;
+	private final Coordenada coordenadaInicial;
+	private final DirecaoCardinal direcaoCardinalInicial;
 
-	private LinkedList<Comando> comandos = new LinkedList<>();
+	private final LinkedList<Comando> comandos = new LinkedList<>();
 
-	private Coordenada coordenadaProcessada;
+	private final Coordenada coordenadaProcessada;
 	private DirecaoCardinal direcaoCardinalFinal;
 
 	private Sonda(Coordenada coordenada, DirecaoCardinal direcaoCardinal) {
@@ -58,7 +58,7 @@ public class Sonda implements Serializable {
 		comandos.forEach(c -> comandar(c, tamanhoPlano));
 	}
 
-	public void comandar(Comando comando, TamanhoPlano tamanhoPlano) {
+	private void comandar(Comando comando, TamanhoPlano tamanhoPlano) {
 		comandos.add(comando);
 		processarComando(comando, tamanhoPlano);
 	}
@@ -75,7 +75,7 @@ public class Sonda implements Serializable {
 				moverParaFrente(tamanhoPlano);
 				break;
 			default:
-				throw new IllegalArgumentException("Movimentação não configurada do movimento");
+				throw new IllegalArgumentException(String.format("Comando %s não configurado", comando));
 		}
 	}
 
@@ -109,7 +109,7 @@ public class Sonda implements Serializable {
 		return new DadosSonda(coordenadaProcessada, direcaoCardinalFinal);
 	}
 
-	public String getParaExibicao() {
+	private String getParaExibicao() {
 		return coordenadaProcessada.getX() + ESPACO
 				+ coordenadaProcessada.getY() + ESPACO
 				+ direcaoCardinalFinal;

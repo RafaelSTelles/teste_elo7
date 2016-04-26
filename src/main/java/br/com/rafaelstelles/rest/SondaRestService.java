@@ -24,7 +24,7 @@ public class SondaRestService {
 	private static final Logger LOGGER = Logger.getLogger(SondaRestService.class.getName());
 
 	public static final String SONDA = "/sonda";
-	public static final String ECHO = "/echo";
+	private static final String ECHO = "/echo";
 	public static final String COMANDAR = "/comandar";
 
 	@Inject

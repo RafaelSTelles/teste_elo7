@@ -28,7 +28,7 @@ public enum DirecaoCardinal {
 			case E:
 				return DirecaoCardinal.N;
 			default:
-				throw new IllegalArgumentException("A direção" + direcaoCardinal + " não está configurada a rotação para direita");
+				throw new IllegalArgumentException(String.format("A direção %s não está configurada a rotação para esquerda", direcaoCardinal));
 		}
 	}
 
@@ -43,7 +43,7 @@ public enum DirecaoCardinal {
 			case W:
 				return DirecaoCardinal.N;
 			default:
-				throw new IllegalArgumentException("A direção" + direcaoCardinal + " não está configurada a rotação para direita");
+				throw new IllegalArgumentException(String.format("A direção %s não está configurada a rotação para direita", direcaoCardinal));
 		}
 	}
 }

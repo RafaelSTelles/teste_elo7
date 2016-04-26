@@ -44,7 +44,7 @@ public class SondaService {
 		return sondas;
 	}
 
-	protected List<String> quebrarStringEmLinhas(String comando) {
+	List<String> quebrarStringEmLinhas(String comando) {
 		final List<String> resultados = Arrays.asList(comando.split("\\" + QUEBRA_LINHA));
 		if(resultados.isEmpty() || resultados.size() == 1) {
 			return Arrays.asList(comando.split(QUEBRA_LINHA));
@@ -82,7 +82,7 @@ public class SondaService {
 		return comandos;
 	}
 
-	protected Sonda processarSonda(String linha1, String linha2, TamanhoPlano tamanhoPlano) {
+	Sonda processarSonda(String linha1, String linha2, TamanhoPlano tamanhoPlano) {
 		final DadosSonda dadosSonda = processarPontoInicialSonda(linha1);
 		final Sonda sonda = new Sonda(dadosSonda);
 		final List<Comando> comandos = processarMovimentosSonda(linha2);
