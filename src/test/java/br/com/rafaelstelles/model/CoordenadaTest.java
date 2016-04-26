@@ -20,7 +20,7 @@ public class CoordenadaTest {
 		return new Object[][]{
 				{0, 0, 1, 0},
 				{1, 5, 2, 5},
-				{5, 1, 6, 1},
+				{4, 1, 5, 1},
 		};
 	}
 
@@ -37,7 +37,7 @@ public class CoordenadaTest {
 		return new Object[][]{
 				{2, 0, 1, 0},
 				{3, 5, 2, 5},
-				{7, 1, 6, 1},
+				{4, 1, 3, 1},
 		};
 	}
 
@@ -53,7 +53,7 @@ public class CoordenadaTest {
 	Object[][] coordenadasYIncremento() {
 		return new Object[][]{
 				{0, 0, 0, 1},
-				{1, 5, 1, 6},
+				{1, 4, 1, 5},
 				{5, 1, 5, 2},
 		};
 	}
@@ -70,8 +70,8 @@ public class CoordenadaTest {
 	Object[][] coordenadasYDecremento() {
 		return new Object[][]{
 				{2, 5, 2, 4},
-				{3, 10, 3, 9},
-				{7, 9, 7, 8},
+				{3, 4, 3, 3},
+				{5, 1, 5, 0},
 		};
 	}
 
@@ -86,35 +86,29 @@ public class CoordenadaTest {
 	@DataProvider(name = "coordenadasXIncrementoErro", parallel = true)
 	Object[][] coordenadasXIncrementoErro() {
 		return new Object[][]{
-				{0, 0, 0, 1},
-				{1, 5, 1, 6},
-				{5, 1, 5, 2},
+				{1, 5},
+				{5, 5},
 		};
 	}
 
-	@Test(dataProvider = "coordenadasXIncrementoErro")
-	public void incrementarXErro(int x, int y, int experadoX, int experadoY) {
+	@Test(dataProvider = "coordenadasXIncrementoErro", expectedExceptions = IllegalStateException.class)
+	public void incrementarXErro(int x, int y) {
 		final Coordenada coordenada = new Coordenada(x, y);
 		coordenada.incrementaY(tamanhoPlano.getAltura());
-		assertEquals(coordenada.getX(), experadoX);
-		assertEquals(coordenada.getY(), experadoY);
 	}
 
 	@DataProvider(name = "coordenadasYIncrementoErro", parallel = true)
 	Object[][] coordenadasYIncrementoErro() {
 		return new Object[][]{
-				{0, 0, 0, 1},
-				{1, 5, 1, 6},
-				{5, 1, 5, 2},
+				{0, 5},
+				{5, 5},
 		};
 	}
 
-	@Test(dataProvider = "coordenadasYIncrementoErro")
-	public void incrementarYErro(int x, int y, int experadoX, int experadoY) {
+	@Test(dataProvider = "coordenadasYIncrementoErro", expectedExceptions = IllegalStateException.class)
+	public void incrementarYErro(int x, int y) {
 		final Coordenada coordenada = new Coordenada(x, y);
 		coordenada.incrementaY(tamanhoPlano.getAltura());
-		assertEquals(coordenada.getX(), experadoX);
-		assertEquals(coordenada.getY(), experadoY);
 	}
 
 }

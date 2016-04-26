@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Coordenada implements Serializable {
 
-	protected static final Coordenada INICIAL = new Coordenada(0, 0);
+	private static final Coordenada INICIAL = new Coordenada(0, 0);
 
 	private int x;
 	private int y;
@@ -15,11 +15,11 @@ public class Coordenada implements Serializable {
 		this.y = y;
 	}
 
-	public int getX() {
+	protected int getX() {
 		return x;
 	}
 
-	public int getY() {
+	protected int getY() {
 		return y;
 	}
 
@@ -50,29 +50,29 @@ public class Coordenada implements Serializable {
 				'}';
 	}
 
-	public void incrementaX(int max) {
-		if (x > max) {
+	protected void incrementaX(int max) {
+		if (x >= max) {
 			throw new IllegalStateException(String.format("Não é possível mover o ponto para um lugar maior que o plano x=%s max=%s", x, max));
 		}
 		x++;
 	}
 
-	public void decrementaX() {
-		if (x < INICIAL.getX()) {
+	protected void decrementaX() {
+		if (x <= INICIAL.getX()) {
 			throw new IllegalStateException(String.format("Não é possível mover o ponto menor a coordenada inicial x=%s inicial=%s", x, INICIAL.getX()));
 		}
 		x--;
 	}
 
-	public void incrementaY(int max) {
-		if (y > max) {
+	protected void incrementaY(int max) {
+		if (y >= max) {
 			throw new IllegalStateException(String.format("Não é possível mover o ponto para um lugar maior que o plano y=%s max=%s", y, max));
 		}
 		y++;
 	}
 
-	public void decrementaY() {
-		if (y < INICIAL.getX()) {
+	protected void decrementaY() {
+		if (y <= INICIAL.getX()) {
 			throw new IllegalStateException(String.format("Não é possível mover o ponto menor a coordenada inicial y=%s inicial=%s", x, INICIAL.getY()));
 		}
 		y--;
