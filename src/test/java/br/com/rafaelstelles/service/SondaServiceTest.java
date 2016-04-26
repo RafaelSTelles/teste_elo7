@@ -2,6 +2,8 @@ package br.com.rafaelstelles.service;
 
 import static br.com.rafaelstelles.model.DirecaoCardinal.E;
 import static br.com.rafaelstelles.model.DirecaoCardinal.N;
+import static br.com.rafaelstelles.model.DirecaoCardinal.S;
+import static br.com.rafaelstelles.model.DirecaoCardinal.W;
 import static org.testng.Assert.assertEquals;
 
 import java.util.Arrays;
@@ -52,7 +54,25 @@ public class SondaServiceTest {
 						"1 2 N" + System.lineSeparator() +
 						"LMLMLMLMM" + System.lineSeparator() +
 						"3 3 E" + System.lineSeparator() +
-						"MMRMMRMRRM", Arrays.asList(new DadosSonda(new Coordenada(1, 3), N), new DadosSonda(new Coordenada(5, 1), E))
+						"MMRMMRMRRM" + System.lineSeparator() +
+						"1 1 E" + System.lineSeparator() +
+						"MMLMM" + System.lineSeparator() +
+						"2 4 E" + System.lineSeparator() +
+						"LRLRLR" + System.lineSeparator() +
+						"5 5 N " + System.lineSeparator() +
+						" " + System.lineSeparator() +
+						"0 0 N" + System.lineSeparator() +
+						"MLLMR" + System.lineSeparator() +
+						"4 1 N" + System.lineSeparator() +
+						"MMLMRMRMRM" + System.lineSeparator(),
+						Arrays.asList(new DadosSonda(new Coordenada(1, 3), N),
+								new DadosSonda(new Coordenada(5, 1), E),
+								new DadosSonda(new Coordenada(3, 3), N),
+								new DadosSonda(new Coordenada(2, 4), E),
+								new DadosSonda(new Coordenada(5, 5), N),
+								new DadosSonda(new Coordenada(0, 0), W),
+								new DadosSonda(new Coordenada(4, 3), S)
+						)
 				},
 		};
 	}
